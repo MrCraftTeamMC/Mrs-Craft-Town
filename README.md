@@ -1,2 +1,2 @@
-# TubeLibrary
-A Library Mod for my Minecraft Mods
+# MyModTemplate
+A Template for my Minecraft Mods
