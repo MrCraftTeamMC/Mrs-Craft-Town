@@ -1,0 +1,37 @@
+modLoader = "javafml"
+loaderVersion = "[41,)"
+#issueTrackerURL = "https://github.com/erha134/EasierIndustrial/issues/"
+license = "GPLv3"
+
+[[mods]]
+modId = "examplemod"
+version = "${version}"
+displayName = "Easier Travel Craft Mod"
+#updateJSONURL=""
+#displayURL="https://modrinth.com/mod/easiertravelcraft/"
+authors = "Me!"
+description = '''
+A Minecraft Mod.
+'''
+logoFile = "icon.png"
+
+[[dependencies.examplemod]]
+modId = "forge"
+mandatory = true
+versionRange = "[41,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.examplemod]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19, 1.19.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.examplemod]]
+modId = "architectury"
+mandatory = true
+versionRange = "[0,)"
+ordering = "NONE"
+side = "BOTH"

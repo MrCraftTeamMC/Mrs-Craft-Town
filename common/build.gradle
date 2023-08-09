@@ -1,0 +1,33 @@
+architectury {
+    common(rootProject.enabled_platforms.split(","))
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/examplemod.accesswidener")
+}
+
+dependencies {
+    // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
+    // Do NOT use other classes from fabric loader
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    // Remove the next line if you don't want to depend on the API
+    modApi "dev.architectury:architectury:${architectury_version}"
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) { //EasierTravelCraft-xplat-api
+            artifactId = rootProject.archives_base_name + "-" + project.name + "-api-" + rootProject.minecraft_version
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        maven {
+            name = "LocalRepo"
+            url = "file://${rootProject.buildDir}/repo"
+        }
+    }
+}
