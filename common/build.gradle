@@ -3,15 +3,67 @@ architectury {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/examplemod.accesswidener")
+    accessWidenerPath = file("src/main/resources/easiertravelcraft.accesswidener")
 }
 
 dependencies {
+
+    // From Architectury Templates
+
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
     // Do NOT use other classes from fabric loader
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${architectury_version}"
+
+    // Impl
+    // JEI
+    modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${jei_version}"
+
+    // REI
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rei_version}"
+
+    // EMI
+    modCompileOnly "dev.emi:emi-xplat-intermediary:${emi_version}:api"
+
+    // Curios API
+    compileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
+
+    // Trinkets
+    modCompileOnly "dev.emi:trinkets:${trinkets_version}"
+
+    // Cloth Config
+    modApi "me.shedaniel.cloth:cloth-config:${cloth_config_version}"
+
+    // BookShelf
+    modCompileOnly "net.darkhax.bookshelf:Bookshelf-Common-${rootProject.minecraft_version}:${bookshelf_version}"
+
+    // Registrate
+    compileOnly "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modApi "com.tterrag.registrate_fabric:Registrate:${registrate_fabric_version}"
+
+    // Kiwi
+    modApi "curse.maven:kiwi-fabric-549404:${kiwi_fabric_fileId}"
+    annotationProcessor "curse.maven:kiwi-fabric-549404:${kiwi_fabric_fileId}"
+
+    // Cardinal Components Api
+    modCompileOnly "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${cardinal_components_api_version}"
+
+    // Milk Lib
+    modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
+
+    // Reach Entity Attributes
+    modCompileOnly "com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}"
+
+    // Fabric Shields Lib
+    modCompileOnly("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${fabric_shield_lib_version}") {
+        exclude module: "midnightlib"
+    }
+
+    // Other Libs
+    modCompileOnly("com.github.Fallen-Breath:conditional-mixin:${coditionalmixin_version}") {
+        exclude module: "fabric-loader"
+    }
 }
 
 publishing {

@@ -21,7 +21,7 @@ loom {
     runs {
         data {
             data()
-            programArgs "--all", "--mod", "examplemod"
+            programArgs "--all", "--mod", "easiertravelcraft"
             programArgs "--output", generatedResources.absolutePath
         }
     }
@@ -43,6 +43,46 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive = false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+
+    // Development QOL
+    modLocalRuntime "curse.maven:lazy-dfu-forge-460819:3831644"
+    // Curios API
+    modCompileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
+
+    // JEI
+    // compile against the JEI API but do not include it at runtime
+    modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${jei_version}"
+    modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-forge-api:${jei_version}"
+    // at runtime, use the full JEI jar for Forge
+    modRuntimeOnly "mezz.jei:jei-${rootProject.minecraft_version}-forge:${jei_version}"
+
+    // REI
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:${rei_version}"
+
+    // EMI
+    modCompileOnly "dev.emi:emi-forge:${emi_version}:api"
+    modRuntimeOnly "dev.emi:emi-forge:${emi_version}"
+
+    // MidnightLib
+    modApi(include("maven.modrinth:midnightlib:${midnightlib_version}-forge"))
+    // Cloth Config
+    modApi "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
+    // Geckolib
+    modImplementation "software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}"
+    // BookShelf
+    modApi "net.darkhax.bookshelf:Bookshelf-Forge-${rootProject.minecraft_version}:${bookshelf_version}"
+
+    // Registrate
+    modApi(include("com.tterrag.registrate:Registrate:${registrate_version}"))
+
+    // Kiwi
+    modApi "curse.maven:kiwi-303657:${kiwi_forge_fileId}"
+    annotationProcessor "curse.maven:kiwi-303657:${kiwi_forge_fileId}"
+
+    // Other Libs
+    api(include("com.github.Fallen-Breath:conditional-mixin:${coditionalmixin_version}")) {
+        exclude module: "fabric-loader"
+    }
 }
 
 processResources {
@@ -60,8 +100,7 @@ processResources {
 loom {
     forge {
         mixinConfig(
-                "examplemod-common.mixins.json",
-                "examplemod.mixins.json"
+                "easiertravelcraft-common.mixins.json"
         )
     }
 }

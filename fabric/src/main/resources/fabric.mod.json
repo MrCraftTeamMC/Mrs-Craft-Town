@@ -1,42 +1,58 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "easiertravelcraft",
   "version": "${version}",
-  "name": "Example Mod",
+  "name": "Easier Travel Craft Mod",
   "description": "A Minecraft Mod.",
   "authors": [
-    "Me!"
+    "erha134 (Mr_limr233/Mrlimr267)"
+  ],
+  "contributors": [
+    "Mr_zmh5",
+    "ChenMouRenLou233"
   ],
   "contact": {
-    "homepage": "https://github.com/"
+    "homepage": "https://modrinth.com/mod/easierindustrial/",
+    "sources": "https://github.com/erha134/EasierIndustrial/",
+    "issues": "https://github.com/erha134/EasierIndustrial/issues/"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/examplemod/icon.png",
+  "license": "GPLv3",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.examplemod.fabric.ExampleModFabric"
+      "cn.tlscstudios.easiertravelcraft.fabric.EasierTravelCraftModFabric::onInitialize"
     ],
     "client": [
-      "com.example.examplemod.fabric.client.ExampleModClientFabric"
+      "cn.tlscstudios.easiertravelcraft.fabric.EasierTravelCraftModFabric::onInitializeClient"
+    ],
+    "server": [
+      "cn.tlscstudios.easiertravelcraft.fabric.EasierTravelCraftModFabric::onInitializeServer"
     ],
     "fabric-datagen": [
-      "com.example.examplemod.fabric.datagen.ExampleModDataGenFabric"
+      "cn.tlscstudios.easiertravelcraft.fabric.datagen.EasierTravelCraftModDataGenFabric"
     ],
     "modmenu": [
-      "com.example.examplemod.fabric.impl.ModMenuImpl"
+      "cn.tlscstudios.easiertravelcraft.fabric.impl.ModMenuImpl"
     ]
   },
   "mixins": [
-    "examplemod.mixins.json",
-    "examplemod-common.mixins.json"
+    "easiertravelcraft-common.mixins.json"
   ],
   "depends": {
     "minecraft": ">=1.19 <=1.19.2",
     "fabric": "*",
-    "architectury": "*"
+    "architectury": "*",
+    "midnightlib": "*",
+    "kiwi": "*",
+    "registrate-fabric": "*"
+  },
+  "breaks": {
+    "optifine": "*"
   },
   "suggests": {
-    "modmenu": "*"
+    "modmenu": "*",
+    "trinkets": "*",
+    "create": "*"
   }
 }
