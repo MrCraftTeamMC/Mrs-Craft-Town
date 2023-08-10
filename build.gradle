@@ -4,7 +4,6 @@ plugins {
     id "dev.architectury.loom" version "1.1-SNAPSHOT" apply false
     //id "io.github.juuxel.loom-quiltflower" version "1.+" apply false 
     id 'io.github.juuxel.loom-vineflower' version '1.11.0' apply false // Quiltflower / Vineflower, a better decompiler
-    id "io.github.p03w.machete" version "1.+" // automatic jar compressing on build
     id "de.undercouch.download" version "4.1.2" // Download Files
     id "io.github.pacifistmc.forgix" version "1.2.6" // Merge Fabric and Forge Jar 
 }
@@ -143,10 +142,7 @@ allprojects {
     archivesBaseName = rootProject.archives_base_name
     group = rootProject.maven_group
 
-    // Formats the mod version to include the loader, Minecraft version, and build number (if present)
-    // example: 1.0.0+fabric-1.18.2-100
-    String buildNumber = System.getenv("GITHUB_RUN_NUMBER")
-    version = "${rootProject.mod_version}+${project.name}-mc${rootProject.minecraft_version}" + (buildNumber != null ? "-${buildNumber}" : "")
+    version = rootProject.mod_version + (project.name == "fabric" || project.name == "forge" ? "-" + project.name : "")
 
     repositories {
         // Add repositories to retrieve artifacts from in here.
@@ -164,10 +160,54 @@ allprojects {
         withSourcesJar()
     }
 
-    machete {
-        // disable machete locally for faster builds
-        enabled = buildNumber != null
+}
+
+forgix {
+    group = project.maven_group // This is the common group of the mod which by default in Architectury Template it's defined as "maven_group" in your gradle.properties. If this property is not defined then by default it'll fetch the group from the maven_group property in your gradle.properties
+    mergedJarName = project.archives_base_name + "-" + rootProject.mod_version + "-mc" + rootProject.minecraft_version + "-Merged.jar" // This is the name of the merged jar. If this property is not defined then by default it'll fetch the "archives_base_name" property with the "mod_version" property in your gradle.properties.
+    outputDir = "build/libs/Merged" // This is the output directory of the merged jar from the root project. If this property is not defined then by default it's set to "Merged".
+
+    forge {
+        jarLocation = "build/libs/" + rootProject.archives_base_name + "-" + rootProject.mod_version + "-forge.jar" // This is the location of the forge jar from the forge project. If this property is not defined then by default it fetches the jar with the shortest name.
+        //EasierTravelCraft-1.0.0-alpha.4+forge-mc1.19.2
+        //additionalRelocate "org.my.lib" "forge.org.my.lib" // This is an important one to know. This is how you can remap additional packages such as libraries and stuff.
+
+        //mixin "forge.mixins.json" // This is in case if we didn't auto detect the forge mixins.
     }
+
+    fabric {
+        jarLocation = "build/libs/" + rootProject.archives_base_name + "-" + rootProject.mod_version + "-fabric.jar"  // This is the location of the fabric jar from the fabric project. If this property is not defined then by default it fetches the jar with the shortest name.
+
+        //additionalRelocate "org.my.lib" "fabric.org.my.lib" // This is an important one to know. This is how you can remap additional packages such as libraries and stuff.
+    }
+     /*
+    quilt {
+        jarLocation = "build/libs/example-mod.jar" // This is the location of the quilt jar from the quilt project. If this property is not defined then by default it fetches the jar with the shortest name.
+
+        additionalRelocate "org.my.lib" "quilt.org.my.lib" // This is an important one to know. This is how you can remap additional packages such as libraries and stuff.
+        additionalRelocate "org.my.lib.another" "quilt.org.my.lib.another"
+    }
+
+    // For "custom", the "projectName" is a required value.
+    custom {
+        projectName = "sponge" // This is the name of the project. This is a required field.
+        jarLocation = "build/libs/example-mod.jar" // This is the location of the jar from the project. If this property is not defined then by default it fetches the jar with the shortest name.
+
+        additionalRelocate "org.my.lib" "sponge.org.my.lib" // This is an important one to know. This is how you can remap additional packages such as libraries and stuff.
+        additionalRelocate "org.my.lib.another" "sponge.org.my.lib.another"
+    }
+
+    custom {
+        projectName = "spigot" // This is the name of the project. This is a required field.
+        jarLocation = "build/libs/example-mod.jar" // This is the location of the jar from the project. If this property is not defined then by default it fetches the jar with the shortest name.
+
+        additionalRelocate "org.my.lib" "spigot.org.my.lib" // This is an important one to know. This is how you can remap additional packages such as libraries and stuff.
+        additionalRelocate "org.my.lib.another" "spigot.org.my.lib.another"
+    }
+
+    // This should be used to remove a duplicate package
+    removeDuplicate "org.example.mod.core"
+    */
 }
 
 // Customs Tasks
@@ -181,10 +221,16 @@ tasks.register("CleanBuilds") {
         def devLibs = {
             p -> p.buildDir.toPath().resolve('devlibs')
         }
+        def mergeLibs = {
+            p -> p.buildDir.toPath().resolve('libs/Merged')
+        }
         delete fileTree(buildLibs(rootProject)) {
             include '*'
         }
         delete fileTree(devLibs(rootProject)) {
+            include '*'
+        }
+        delete fileTree(mergeLibs(rootProject)) {
             include '*'
         }
         subprojects {
@@ -201,11 +247,12 @@ tasks.register("CleanBuilds") {
 
 tasks.register("CovertBuilds") {
     group = "build"
-    dependsOn CleanBuilds
-    dependsOn build
+    dependsOn 'CleanBuilds'
+    dependsOn 'build'
     subprojects {
         dependsOn project.tasks.named('build').get()
     }
+    finalizedBy 'mergeJars'
     doFirst {
         println ":coverting builds"
         def buildLibs = {
@@ -214,30 +261,29 @@ tasks.register("CovertBuilds") {
         def devLibs = {
             p -> p.buildDir.toPath().resolve('devlibs')
         }
-        delete fileTree(buildLibs(rootProject)) {
-            include '*'
-        }
-        delete fileTree(devLibs(rootProject)) {
-            include '*'
-        }
         subprojects {
-            copy {
-                from(buildLibs(project)) {
-                    include '*.jar'
-                    exclude '*-dev.jar', '*-sources.jar', '*-javadoc.jar', '*-shadow.jar', '*-transformProductionFabric.jar', '*-transformProductionForge.jar', '*-transformProductionQuilt.jar', "*+common-mc${rootProject.minecraft_version}.jar","*+common-mc${rootProject.minecraft_version}-*.jar", "*+${rootProject.archives_base_name}-mc${rootProject.minecraft_version}-*.jar"
+            if (project.name != "common") {
+                copy {
+                    from(buildLibs(project)) {
+                        include '*.jar'
+                        exclude '*-dev.jar', '*-sources.jar', '*-javadoc.jar', '*-shadow.jar', '*-transformProductionFabric.jar', '*-transformProductionForge.jar', '*-transformProductionQuilt.jar'
+                    }
+                    into buildLibs(rootProject)
+                    duplicatesStrategy DuplicatesStrategy.INCLUDE
                 }
-                into buildLibs(rootProject)
-                duplicatesStrategy DuplicatesStrategy.INCLUDE
-            }
-            copy {
-                from(devLibs(project)) {
-                    include '*.jar'
-                    exclude "*+common-mc${rootProject.minecraft_version}.jar","*+common-mc${rootProject.minecraft_version}-*.jar", "*+${rootProject.archives_base_name}-mc${rootProject.minecraft_version}-*.jar"
+                copy {
+                    from(devLibs(project)) {
+                        include '*.jar'
+                    }
+                    into devLibs(rootProject)
+                    duplicatesStrategy DuplicatesStrategy.INCLUDE
                 }
-                into devLibs(rootProject)
-                duplicatesStrategy DuplicatesStrategy.INCLUDE
+            } else {
+                println ":" + project.name + ":covert builds SKIPPED"
             }
         }
+    }
+    doLast {
         println ":covert builds SUCCESSFUL"
         println "The Artifacts should be in the build/libs folder"
     }

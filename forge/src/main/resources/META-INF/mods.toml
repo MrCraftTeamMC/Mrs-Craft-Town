@@ -1,36 +1,51 @@
 modLoader = "javafml"
 loaderVersion = "[41,)"
-#issueTrackerURL = "https://github.com/erha134/EasierIndustrial/issues/"
+issueTrackerURL = "https://github.com/erha134/EasierIndustrial/issues/"
 license = "GPLv3"
 
 [[mods]]
-modId = "examplemod"
+modId = "easiertravelcraft"
 version = "${version}"
 displayName = "Easier Travel Craft Mod"
 #updateJSONURL=""
-#displayURL="https://modrinth.com/mod/easiertravelcraft/"
-authors = "Me!"
+displayURL="https://modrinth.com/mod/easiertravelcraft/"
+authors = "erha134 (Mr_limr233/Mrlimr267)"
+credits = "Mr_zmh5"
 description = '''
 A Minecraft Mod.
 '''
 logoFile = "icon.png"
 
-[[dependencies.examplemod]]
+[[dependencies.easiertravelcraft]]
 modId = "forge"
 mandatory = true
 versionRange = "[41,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.easiertravelcraft]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.19, 1.19.2)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.easiertravelcraft]]
 modId = "architectury"
+mandatory = true
+versionRange = "[0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.easiertravelcraft]]
+modId = "midnightlib"
+mandatory = true
+versionRange = "[0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.easiertravelcraft]]
+modId = "kiwi"
 mandatory = true
 versionRange = "[0,)"
 ordering = "NONE"
