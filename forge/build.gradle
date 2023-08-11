@@ -45,9 +45,10 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
     // Development QOL
-    modLocalRuntime "curse.maven:lazy-dfu-forge-460819:3831644"
+    modLocalRuntime "curse.maven:lazy-dfu-forge-460819:${lazydfu_forge_fileId}"
     // Curios API
-    modCompileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
+    modRuntimeOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
+    modCompileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}:api"
 
     // JEI
     // compile against the JEI API but do not include it at runtime
@@ -68,12 +69,9 @@ dependencies {
     // Cloth Config
     modApi "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}"
+    modImplementation "software.bernie.geckolib:geckolib-forge-1.19.4:${geckolib_version}"
     // BookShelf
     modApi "net.darkhax.bookshelf:Bookshelf-Forge-${rootProject.minecraft_version}:${bookshelf_version}"
-
-    // Registrate
-    modApi(include("com.tterrag.registrate:Registrate:${registrate_version}"))
 
     // Kiwi
     modApi "curse.maven:kiwi-303657:${kiwi_forge_fileId}"
