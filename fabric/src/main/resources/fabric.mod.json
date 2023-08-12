@@ -3,7 +3,7 @@
   "id": "easiertravelcraft",
   "version": "${version}",
   "name": "Easier Travel Craft Mod",
-  "description": "A Minecraft Mod.",
+  "description": "A Minecraft Travel Mod.",
   "authors": [
     "erha134 (Mr_limr233/Mrlimr267)"
   ],
@@ -40,12 +40,11 @@
     "easiertravelcraft-common.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.19 <=1.19.2",
+    "minecraft": "~1.19.4",
     "fabric": "*",
     "architectury": "*",
     "midnightlib": "*",
-    "kiwi": "*",
-    "registrate-fabric": "*"
+    "kiwi": "*"
   },
   "breaks": {
     "optifine": "*"

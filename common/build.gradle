@@ -35,12 +35,11 @@ dependencies {
     // Cloth Config
     modApi "me.shedaniel.cloth:cloth-config:${cloth_config_version}"
 
+    // Geckolib
+    modImplementation "software.bernie.geckolib:geckolib-fabric-1.19.4:${geckolib_version}"
+
     // BookShelf
     modCompileOnly "net.darkhax.bookshelf:Bookshelf-Common-${rootProject.minecraft_version}:${bookshelf_version}"
-
-    // Registrate
-    compileOnly "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
-    modApi "com.tterrag.registrate_fabric:Registrate:${registrate_fabric_version}"
 
     // Kiwi
     modApi "curse.maven:kiwi-fabric-549404:${kiwi_fabric_fileId}"
@@ -53,7 +52,7 @@ dependencies {
     modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
 
     // Reach Entity Attributes
-    modCompileOnly "com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}"
+    modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}")
 
     // Fabric Shields Lib
     modCompileOnly("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${fabric_shield_lib_version}") {
