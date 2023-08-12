@@ -1,8 +1,7 @@
 package cn.tlscstudios.easiertravelcraft;
 
-import cn.tlscstudios.easiertravelcraft.block.RegisterBlocks;
-import cn.tlscstudios.easiertravelcraft.item.RegisterItems;
-import cn.tlscstudios.easiertravelcraft.util.Registers;
+import cn.tlscstudios.easiertravelcraft.block.ETCBlocks;
+import cn.tlscstudios.easiertravelcraft.item.ETCItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import org.slf4j.Logger;
@@ -13,12 +12,15 @@ public class EasierTravelCraftMod {
     public static final String NAME = "Easier Travel Craft Mod";
     public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
 
+    public static Boolean Registed = false;
+
     public static void init() {
         LOGGER.info("{} initializing! on platform: {}", NAME, EasierTravelCraftModExpectPlatform.getPlatformName());
 
         // Registers
         LOGGER.info("Stage 1: Resolving Register...");
-        Registers.register();
+        RegisterInit();
+        Registed = true;
 
         LOGGER.info("Set up {} Completely!", NAME);
     }
@@ -31,5 +33,14 @@ public class EasierTravelCraftMod {
     @Environment(EnvType.SERVER)
     public static void initServer() {
         LOGGER.info("{} Server initializing! on platform: {}", NAME, EasierTravelCraftModExpectPlatform.getPlatformName());
+    }
+
+    public static void RegisterInit() {
+        if (Registed) {
+            throw new RuntimeException("All Things has been Registered!");
+        }
+        Registed = true;
+        ETCBlocks.register();
+        ETCItems.register();
     }
 }

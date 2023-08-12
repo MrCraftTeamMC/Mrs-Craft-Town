@@ -7,9 +7,11 @@ import net.minecraft.world.item.Items;
 
 import static cn.tlscstudios.easiertravelcraft.EasierTravelCraftMod.MOD_ID;
 
-public class EasierTravelCraftCreativeTab {
-    public static final CreativeTabRegistry.TabSupplier EASIERTRAVELCRAFT_TAB = CreativeTabRegistry.create(
+public class ETCCreativeTabs {
+    public static final CreativeTabRegistry.TabSupplier BASE_TAB = CreativeTabRegistry.create(
             new ResourceLocation(MOD_ID, "easiertravelcraft_tab"), // Tab ID
             () -> new ItemStack(Items.CRAFTING_TABLE) // Icon
     );
+
+    public static void register() {}
 }
