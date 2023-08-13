@@ -5,7 +5,7 @@ import cn.tlscstudios.easiertravelcraft.creativetab.ETCCreativeTabs;
 import cn.tlscstudios.easiertravelcraft.item.custom.CommonItem;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -16,9 +16,9 @@ import java.util.function.Supplier;
 import static cn.tlscstudios.easiertravelcraft.EasierTravelCraftMod.MOD_ID;
 
 public class ETCItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MOD_ID, Registries.ITEM);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MOD_ID, Registry.ITEM_REGISTRY);
     public static RegistrySupplier<Item> BlockItem(@NotNull String id, Supplier<Block> b) {
-        return ITEMS.register(id, () -> new BlockItem(b.get(), new Item.Properties().arch$tab(ETCCreativeTabs.BASE_TAB)));
+        return ITEMS.register(id, () -> new BlockItem(b.get(), new Item.Properties().tab(ETCCreativeTabs.BASE_TAB)));
     }
 
     // Vanilla ETCItems

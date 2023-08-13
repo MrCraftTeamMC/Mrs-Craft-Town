@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[44,)"
+loaderVersion = "[41,)"
 issueTrackerURL = "https://github.com/erha134/EasierIndustrial/issues/"
 license = "GPLv3"
 
@@ -19,14 +19,14 @@ logoFile = "icon.png"
 [[dependencies.easiertravelcraft]]
 modId = "forge"
 mandatory = true
-versionRange = "[44,)"
+versionRange = "[41,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.easiertravelcraft]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.4, 1.20)"
+versionRange = "[1.19, 1.19.2)"
 ordering = "NONE"
 side = "BOTH"
 

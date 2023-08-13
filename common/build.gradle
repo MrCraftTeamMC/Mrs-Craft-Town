@@ -36,7 +36,7 @@ dependencies {
     modApi "me.shedaniel.cloth:cloth-config:${cloth_config_version}"
 
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-fabric-1.19.4:${geckolib_version}"
+    modImplementation "software.bernie.geckolib:geckolib-fabric-1.19:${geckolib_version}"
 
     // BookShelf
     modCompileOnly "net.darkhax.bookshelf:Bookshelf-Common-${rootProject.minecraft_version}:${bookshelf_version}"

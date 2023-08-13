@@ -8,6 +8,6 @@ public class CommonItem extends Item {
     public CommonItem() {
         super(new Item.Properties()
                 .stacksTo(64)
-                .arch$tab(ETCCreativeTabs.BASE_TAB));
+                .tab(ETCCreativeTabs.BASE_TAB));
     }
 }
