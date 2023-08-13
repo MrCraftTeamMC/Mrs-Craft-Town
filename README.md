@@ -1,2 +1,2 @@
 # Mrs Craft Town
-A Minecraft Mod.
+一个普通的Mod
