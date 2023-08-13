@@ -1,2 +1,2 @@
-# MyModTemplate
-A Template for my Minecraft Mods
+# Mrs Craft Town
+A Minecraft Mod.
