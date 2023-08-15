@@ -1,43 +1,43 @@
 modLoader = "javafml"
-loaderVersion = "[44,)"
-issueTrackerURL = "https://github.com/erha134/EasierIndustrial/issues/"
+loaderVersion = "[46,)"
+issueTrackerURL = "https://github.com/erha134/Mrs-Craft-Town/issues/"
 license = "GPLv3"
 
 [[mods]]
-modId = "easiertravelcraft"
+modId = "mrscrafttown"
 version = "${version}"
-displayName = "Easier Travel Craft Mod"
+displayName = "Mr's Craft Town Mod"
 #updateJSONURL=""
-displayURL="https://modrinth.com/mod/easiertravelcraft/"
+displayURL="https://modrinth.com/mod/mrscrafttown/"
 authors = "erha134 (Mr_limr233/Mrlimr267)"
 credits = "Mr_zmh5"
 description = '''
-A Minecraft Travel Mod.
+A Minecraft Mod.
 '''
 logoFile = "icon.png"
 
-[[dependencies.easiertravelcraft]]
+[[dependencies.mrscrafttown]]
 modId = "forge"
 mandatory = true
-versionRange = "[44,)"
+versionRange = "[46,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.easiertravelcraft]]
+[[dependencies.mrscrafttown]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.4, 1.20)"
+versionRange = "[1.20, 1.21)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.easiertravelcraft]]
+[[dependencies.mrscrafttown]]
 modId = "architectury"
 mandatory = true
 versionRange = "[0,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.easiertravelcraft]]
+[[dependencies.mrscrafttown]]
 modId = "midnightlib"
 mandatory = true
 versionRange = "[0,)"

@@ -36,7 +36,7 @@ configurations {
 }
 
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${forge_version}"
+    forge "net.neoforged:forge:${rootProject.minecraft_version}-${forge_version}"
 
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${architectury_version}"
@@ -47,8 +47,11 @@ dependencies {
     // Development QOL
     modLocalRuntime "curse.maven:lazy-dfu-forge-460819:${lazydfu_forge_fileId}"
     // Curios API
-    modRuntimeOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
-    modCompileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}:api"
+    modRuntimeOnly "top.theillusivec4.curios:curios-forge:${curios_version}"
+    modCompileOnly "top.theillusivec4.curios:curios-forge:${curios_version}:api"
+
+    modRuntimeOnly "top.theillusivec4.caelus:caelus-forge:${caelus_version}"
+    modCompileOnly "top.theillusivec4.caelus:caelus-forge:${caelus_version}:api"
 
     // JEI
     // compile against the JEI API but do not include it at runtime
@@ -69,7 +72,7 @@ dependencies {
     // Cloth Config
     modApi "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.19.4:${geckolib_version}"
+    modImplementation "software.bernie.geckolib:geckolib-forge-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
     // BookShelf
     modApi "net.darkhax.bookshelf:Bookshelf-Forge-${rootProject.minecraft_version}:${bookshelf_version}"
 

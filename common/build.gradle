@@ -3,7 +3,7 @@ architectury {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/easiertravelcraft.accesswidener")
+    accessWidenerPath = file("src/main/resources/mrscrafttown.accesswidener")
 }
 
 dependencies {
@@ -27,7 +27,8 @@ dependencies {
     modCompileOnly "dev.emi:emi-xplat-intermediary:${emi_version}:api"
 
     // Curios API
-    compileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
+    compileOnly "top.theillusivec4.curios:curios-forge:${curios_version}:api"
+    compileOnly "top.theillusivec4.caelus:caelus-forge:${caelus_version}:api"
 
     // Trinkets
     modCompileOnly "dev.emi:trinkets:${trinkets_version}"
@@ -36,7 +37,7 @@ dependencies {
     modApi "me.shedaniel.cloth:cloth-config:${cloth_config_version}"
 
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-fabric-1.19.4:${geckolib_version}"
+    modImplementation "software.bernie.geckolib:geckolib-fabric-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
 
     // BookShelf
     modCompileOnly "net.darkhax.bookshelf:Bookshelf-Common-${rootProject.minecraft_version}:${bookshelf_version}"
@@ -49,10 +50,10 @@ dependencies {
     modCompileOnly "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${cardinal_components_api_version}"
 
     // Milk Lib
-    modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
+    //modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
 
     // Reach Entity Attributes
-    modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}")
+    //modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}")
 
     // Fabric Shields Lib
     modCompileOnly("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${fabric_shield_lib_version}") {

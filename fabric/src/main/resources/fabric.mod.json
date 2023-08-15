@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "easiertravelcraft",
+  "id": "mrscrafttown",
   "version": "${version}",
-  "name": "Easier Travel Craft Mod",
-  "description": "A Minecraft Travel Mod.",
+  "name": "Mr's Craft Town Mod",
+  "description": "A Minecraft Mod.",
   "authors": [
     "erha134 (Mr_limr233/Mrlimr267)"
   ],
@@ -12,35 +12,35 @@
     "ChenMouRenLou233"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/easierindustrial/",
-    "sources": "https://github.com/erha134/EasierIndustrial/",
-    "issues": "https://github.com/erha134/EasierIndustrial/issues/"
+    "homepage": "https://modrinth.com/mod/mrscrafttown/",
+    "sources": "https://github.com/erha134/Mrs-Craft-Town/",
+    "issues": "https://github.com/erha134/Mrs-Craft-Town/issues/"
   },
   "license": "GPLv3",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "cn.tlscstudios.easiertravelcraft.fabric.EasierTravelCraftModFabric::onInitialize"
+      "cn.mrcraftteammc.mrscrafttown.fabric.MrsCraftTownModFabric::onInitialize"
     ],
     "client": [
-      "cn.tlscstudios.easiertravelcraft.fabric.EasierTravelCraftModFabric::onInitializeClient"
+      "cn.mrcraftteammc.mrscrafttown.fabric.MrsCraftTownModFabric::onInitializeClient"
     ],
     "server": [
-      "cn.tlscstudios.easiertravelcraft.fabric.EasierTravelCraftModFabric::onInitializeServer"
+      "cn.mrcraftteammc.mrscrafttown.fabric.MrsCraftTownModFabric::onInitializeServer"
     ],
     "fabric-datagen": [
-      "cn.tlscstudios.easiertravelcraft.fabric.datagen.EasierTravelCraftModDataGenFabric"
+      "cn.mrcraftteammc.mrscrafttown.fabric.datagen.MrsCraftTownModDataGenFabric"
     ],
     "modmenu": [
-      "cn.tlscstudios.easiertravelcraft.fabric.impl.ModMenuImpl"
+      "cn.mrcraftteammc.mrscrafttown.fabric.impl.ModMenuImpl"
     ]
   },
   "mixins": [
-    "easiertravelcraft-common.mixins.json"
+    "mrscrafttown-common.mixins.json"
   ],
   "depends": {
-    "minecraft": "~1.19.4",
+    "minecraft": ">=1.20 <1.21",
     "fabric": "*",
     "architectury": "*",
     "midnightlib": "*",
