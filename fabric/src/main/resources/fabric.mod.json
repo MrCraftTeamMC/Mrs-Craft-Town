@@ -16,7 +16,7 @@
     "sources": "https://github.com/erha134/Mrs-Craft-Town/",
     "issues": "https://github.com/erha134/Mrs-Craft-Town/issues/"
   },
-  "license": "GPLv3",
+  "license": "GPLv3-or-later",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {

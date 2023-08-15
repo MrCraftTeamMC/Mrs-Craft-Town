@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[46,)"
 issueTrackerURL = "https://github.com/erha134/Mrs-Craft-Town/issues/"
-license = "GPLv3"
+license = "GPLv3-or-later"
 
 [[mods]]
 modId = "mrscrafttown"
