@@ -7,6 +7,6 @@ import net.minecraft.world.item.Tiers;
 
 public class YellowCopperHoe extends HoeItem {
     public YellowCopperHoe() {
-        super(Tiers.STONE, -1, -2.0F, new Item.Properties().durability(350).stacksTo(1).arch$tab(MrCTCreativeTabs.BASE_TAB));
+        super(Tiers.STONE, -1, -2.0F, new Item.Properties().durability(350).arch$tab(MrCTCreativeTabs.BASE_TAB));
     }
 }

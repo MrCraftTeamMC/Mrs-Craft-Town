@@ -8,6 +8,6 @@ import net.minecraft.world.item.Tiers;
 
 public class CyanCopperAxe extends AxeItem {
     public CyanCopperAxe() {
-        super(Tiers.STONE, 7.0F, -3.2F, new Item.Properties().durability(500).stacksTo(1).arch$tab(MrCTCreativeTabs.BASE_TAB));
+        super(Tiers.STONE, 7.0F, -3.2F, new Item.Properties().durability(500).arch$tab(MrCTCreativeTabs.BASE_TAB));
     }
 }
