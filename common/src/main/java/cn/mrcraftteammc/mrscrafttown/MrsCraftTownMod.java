@@ -3,6 +3,7 @@ package cn.mrcraftteammc.mrscrafttown;
 import cn.mrcraftteammc.mrscrafttown.block.MrCTBlocks;
 import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
 import cn.mrcraftteammc.mrscrafttown.item.MrCTItems;
+import cn.mrcraftteammc.mrscrafttown.util.exception.AccessDeniedError;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import org.slf4j.Logger;
@@ -38,7 +39,7 @@ public class MrsCraftTownMod {
 
     public static void RegisterInit() {
         if (Registed) {
-            throw new RuntimeException("All Things has been Registered!");
+            throw new AccessDeniedError("All Things has been Registered!");
         }
         Registed = true;
         MrCTCreativeTabs.register();

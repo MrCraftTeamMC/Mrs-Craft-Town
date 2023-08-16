@@ -8,6 +8,6 @@ import net.minecraft.world.item.Tiers;
 
 public class CyanCopperHoe extends HoeItem {
     public CyanCopperHoe() {
-        super(Tiers.STONE, -1, -2.0F, new Item.Properties().stacksTo(1).arch$tab(MrCTCreativeTabs.BASE_TAB));
+        super(Tiers.STONE, -1, -2.0F, new Item.Properties().durability(500).stacksTo(1).arch$tab(MrCTCreativeTabs.BASE_TAB));
     }
 }

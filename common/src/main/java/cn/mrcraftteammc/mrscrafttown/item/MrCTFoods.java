@@ -1,6 +1,6 @@
 package cn.mrcraftteammc.mrscrafttown.item;
 
-import cn.mrcraftteammc.mrscrafttown.item.items.potato.ZippedPotatoItem;
+import cn.mrcraftteammc.mrscrafttown.item.food.potato.ZippedPotatoItem;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.world.item.Item;
 
