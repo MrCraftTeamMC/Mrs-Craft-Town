@@ -1,6 +1,7 @@
 package cn.mrcraftteammc.mrscrafttown;
 
 import cn.mrcraftteammc.mrscrafttown.block.MrCTBlocks;
+import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
 import cn.mrcraftteammc.mrscrafttown.item.MrCTItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -40,6 +41,7 @@ public class MrsCraftTownMod {
             throw new RuntimeException("All Things has been Registered!");
         }
         Registed = true;
+        MrCTCreativeTabs.register();
         MrCTBlocks.register();
         MrCTItems.register();
     }

@@ -1,10 +1,10 @@
-package cn.mrcraftteammc.mrscrafttown.item.custom;
+package cn.mrcraftteammc.mrscrafttown.item.tool.copper;
 
 import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
 import net.minecraft.world.item.Item;
 
-public class CustomItem extends Item {
-    public CustomItem() {
+public class CyanCopperIngot extends Item {
+    public CyanCopperIngot() {
         super(new Item.Properties().stacksTo(64).arch$tab(MrCTCreativeTabs.BASE_TAB));
     }
 }
