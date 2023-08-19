@@ -1,12 +1,12 @@
 package cn.mrcraftteammc.mrscrafttown.item.tool.copper;
 
-import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
+import cn.mrcraftteammc.mrscrafttown.item.creativetab.MrCTCreativeTabs;
+import cn.mrcraftteammc.mrscrafttown.item.material.MrCTTiers;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
 
 public class CyanCopperSword extends SwordItem {
     public CyanCopperSword() {
-        super(Tiers.STONE, 3, -2.4F, new Item.Properties().durability(500).arch$tab(MrCTCreativeTabs.BASE_TAB));
+        super(MrCTTiers.CYAN_COPPER, 3, -2.4F, new Item.Properties().durability(500).arch$tab(MrCTCreativeTabs.BASE_TAB));
     }
 }

@@ -1,7 +1,7 @@
 package cn.mrcraftteammc.mrscrafttown.item;
 
 import cn.mrcraftteammc.mrscrafttown.block.MrCTBlocks;
-import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
+import cn.mrcraftteammc.mrscrafttown.item.creativetab.MrCTCreativeTabs;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -20,6 +20,8 @@ public class MrCTBlockItems {
     public static final RegistrySupplier<Item> MR_ZMH5_BLOCK_ITEM = BlockItem("mr_zmh5_block_item", MrCTBlocks.MR_ZMH5_BLOCK);
     public static final RegistrySupplier<Item> CHEN_MOU_REN_LOU233_BLOCK_ITEM = BlockItem("chen_mou_ren_lou_233_block_item", MrCTBlocks.CHEN_MOU_REN_LOU233_BLOCK);
     public static final RegistrySupplier<Item> MR_LIMR267_BLOCK_ITEM = BlockItem("mr_limr267_block_item", MrCTBlocks.MR_LIMR267_BLOCK);
+    public static final RegistrySupplier<Item> EBONY_BLOCK_ITEM = BlockItem("ebony_block_item", MrCTBlocks.EBONY_BLOCK);
+    public static void AppendToolTip() {}
 
     // Load this.class
     public static void register() {}

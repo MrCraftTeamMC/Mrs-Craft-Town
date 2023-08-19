@@ -1,6 +1,6 @@
 package cn.mrcraftteammc.mrscrafttown.item.food.potato;
 
-import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
+import cn.mrcraftteammc.mrscrafttown.item.creativetab.MrCTCreativeTabs;
 import net.minecraft.world.item.Item;
 
 import static cn.mrcraftteammc.mrscrafttown.item.food.MrCTFoodProperties.ZIPPED_POTATO_PROP;

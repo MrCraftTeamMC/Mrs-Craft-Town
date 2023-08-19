@@ -1,6 +1,6 @@
 package cn.mrcraftteammc.mrscrafttown.item.items.copper;
 
-import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
+import cn.mrcraftteammc.mrscrafttown.item.creativetab.MrCTCreativeTabs;
 import net.minecraft.world.item.Item;
 
 public class YellowCopperItem extends Item {

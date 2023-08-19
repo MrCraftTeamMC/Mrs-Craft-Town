@@ -50,7 +50,7 @@ dependencies {
     modCompileOnly "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${cardinal_components_api_version}"
 
     // Milk Lib
-    //modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
+    modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
 
     // Reach Entity Attributes
     //modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}")

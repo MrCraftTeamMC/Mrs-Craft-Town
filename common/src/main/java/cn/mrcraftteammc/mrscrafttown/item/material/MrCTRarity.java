@@ -1,5 +1,5 @@
 package cn.mrcraftteammc.mrscrafttown.item.material;
 
-@Deprecated
-public class MrCTMaterials {
+public enum MrCTRarity {
+
 }

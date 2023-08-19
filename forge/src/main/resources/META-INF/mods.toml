@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[46,)"
-issueTrackerURL = "https://github.com/erha134/Mrs-Craft-Town/issues/"
+issueTrackerURL = "https://github.com/MrCraftTeamMC/Mrs-Craft-Town/issues/"
 license = "GPLv3-or-later"
 
 [[mods]]
@@ -44,7 +44,7 @@ versionRange = "[0,)"
 ordering = "NONE"
 side = "CLIENT"
 
-[[dependencies.easiertravelcraft]]
+[[dependencies.mrscrafttown]]
 modId = "kiwi"
 mandatory = true
 versionRange = "[0,)"

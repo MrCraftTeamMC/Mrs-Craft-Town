@@ -7,6 +7,6 @@ import net.minecraft.world.level.block.Block;
 
 import static cn.mrcraftteammc.mrscrafttown.MrsCraftTownMod.MOD_ID;
 
-public class MrCTTags {
+public class MrCTTagKeys {
     public static final TagKey<Block> COPPER = TagKey.create(Registries.BLOCK, new ResourceLocation(MOD_ID, "copper"));
 }

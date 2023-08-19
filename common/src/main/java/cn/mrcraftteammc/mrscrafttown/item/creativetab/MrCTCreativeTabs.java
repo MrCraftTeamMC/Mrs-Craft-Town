@@ -1,4 +1,4 @@
-package cn.mrcraftteammc.mrscrafttown.creativetab;
+package cn.mrcraftteammc.mrscrafttown.item.creativetab;
 
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -20,7 +20,7 @@ public class MrCTCreativeTabs {
     //    return TABS.register(id, () -> CreativeTabRegistry.create(Component.translatable(name), () -> new ItemStack(item)));
     //}
 
-    public static final RegistrySupplier<CreativeModeTab> BASE_TAB = TABS.register("mrctmod_base_tab",() -> CreativeTabRegistry.create(Component.translatable("mrctmod_base_tab"), () -> new ItemStack(Items.CRAFTING_TABLE)));
+    public static final RegistrySupplier<CreativeModeTab> BASE_TAB = TABS.register("mrctmod_tab",() -> CreativeTabRegistry.create(Component.translatable("MrCT Mod"), () -> new ItemStack(Items.CRAFTING_TABLE)));
 
     public static void register() {
         TABS.register();

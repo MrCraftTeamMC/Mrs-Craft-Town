@@ -1,6 +1,6 @@
 package cn.mrcraftteammc.mrscrafttown.item;
 
-import cn.mrcraftteammc.mrscrafttown.creativetab.MrCTCreativeTabs;
+import cn.mrcraftteammc.mrscrafttown.item.creativetab.MrCTCreativeTabs;
 import net.minecraft.world.item.Item;
 
 public class VanillaItemTemplate extends Item {
