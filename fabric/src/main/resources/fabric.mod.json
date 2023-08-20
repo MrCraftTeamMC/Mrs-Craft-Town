@@ -51,6 +51,7 @@
   },
   "suggests": {
     "modmenu": "*",
+    "botarium": "*",
     "trinkets": "*",
     "create": "*"
   }

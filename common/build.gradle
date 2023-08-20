@@ -16,6 +16,8 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${architectury_version}"
 
+    modImplementation "earth.terrarium:botarium-common-${rootProject.minecraft_version}:${botarium_version}"
+
     // Impl
     // JEI
     modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${jei_version}"
@@ -64,6 +66,8 @@ dependencies {
     modCompileOnly("com.github.Fallen-Breath:conditional-mixin:${coditionalmixin_version}") {
         exclude module: "fabric-loader"
     }
+    // fix nullable imports
+    implementation "com.google.code.findbugs:jsr305:${jsr305_version}"
 }
 
 publishing {
