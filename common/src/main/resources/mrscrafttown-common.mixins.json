@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.mrcraftteammc.mrscrafttown.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "TitleScreenMixin"
+  ],
+  "mixins": [
+    "MinecraftServerMixin",
+    "block.BedrockBlockMixin",
+    "item.SugarItemMixin"
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

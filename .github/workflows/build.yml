@@ -65,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Merged Artifacts
-          path: build/Merged/
+          path: build/libs/Merged/
 
       - name: Publish to Github
         uses: softprops/action-gh-release@v1

@@ -21,7 +21,7 @@ loom {
     runs {
         data {
             data()
-            programArgs "--all", "--mod", "easiertravelcraft"
+            programArgs "--all", "--mod", "mrscrafttown"
             programArgs "--output", generatedResources.absolutePath
         }
     }
@@ -36,10 +36,12 @@ configurations {
 }
 
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${forge_version}"
+    forge "net.neoforged:forge:${rootProject.minecraft_version}-${forge_version}"
 
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${architectury_version}"
+
+    //modApi "earth.terrarium:botarium-forge-${rootProject.minecraft_version}:${botarium_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive = false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
@@ -47,8 +49,11 @@ dependencies {
     // Development QOL
     modLocalRuntime "curse.maven:lazy-dfu-forge-460819:${lazydfu_forge_fileId}"
     // Curios API
-    modRuntimeOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}"
-    modCompileOnly "top.theillusivec4.curios:curios-forge:${rootProject.minecraft_version}-${curios_version}:api"
+    modRuntimeOnly "top.theillusivec4.curios:curios-forge:${curios_version}"
+    modCompileOnly "top.theillusivec4.curios:curios-forge:${curios_version}:api"
+
+    modRuntimeOnly "top.theillusivec4.caelus:caelus-forge:${caelus_version}"
+    modCompileOnly "top.theillusivec4.caelus:caelus-forge:${caelus_version}:api"
 
     // JEI
     // compile against the JEI API but do not include it at runtime
@@ -64,12 +69,15 @@ dependencies {
     modCompileOnly "dev.emi:emi-forge:${emi_version}:api"
     modRuntimeOnly "dev.emi:emi-forge:${emi_version}"
 
-    // MidnightLib
-    modApi(include("maven.modrinth:midnightlib:${midnightlib_version}-forge"))
     // Cloth Config
     modApi "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
+
+    // Resourceful Config
+    modApi(include("curse.maven:resourceful-config-714059:${resourceful_config_forge_version}"))
+
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.19.4:${geckolib_version}"
+    modApi "software.bernie.geckolib:geckolib-forge-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
+
     // BookShelf
     modApi "net.darkhax.bookshelf:Bookshelf-Forge-${rootProject.minecraft_version}:${bookshelf_version}"
 
@@ -81,6 +89,8 @@ dependencies {
     api(include("com.github.Fallen-Breath:conditional-mixin:${coditionalmixin_version}")) {
         exclude module: "fabric-loader"
     }
+    // fix nullable imports
+    api(include("com.google.code.findbugs:jsr305:${jsr305_version}"))
 }
 
 processResources {
@@ -98,7 +108,7 @@ processResources {
 loom {
     forge {
         mixinConfig(
-                "easiertravelcraft-common.mixins.json"
+                "mrscrafttown-common.mixins.json"
         )
     }
 }
