@@ -41,7 +41,7 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${architectury_version}"
 
-    modApi "earth.terrarium:botarium-forge-${rootProject.minecraft_version}:${botarium_version}"
+    //modApi "earth.terrarium:botarium-forge-${rootProject.minecraft_version}:${botarium_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive = false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
@@ -69,12 +69,15 @@ dependencies {
     modCompileOnly "dev.emi:emi-forge:${emi_version}:api"
     modRuntimeOnly "dev.emi:emi-forge:${emi_version}"
 
-    // MidnightLib
-    modApi(include("maven.modrinth:midnightlib:${midnightlib_version}-forge"))
     // Cloth Config
     modApi "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
+
+    // Resourceful Config
+    modApi(include("curse.maven:resourceful-config-714059:${resourceful_config_forge_version}"))
+
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-forge-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
+    modApi "software.bernie.geckolib:geckolib-forge-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
+
     // BookShelf
     modApi "net.darkhax.bookshelf:Bookshelf-Forge-${rootProject.minecraft_version}:${bookshelf_version}"
 
@@ -87,7 +90,7 @@ dependencies {
         exclude module: "fabric-loader"
     }
     // fix nullable imports
-    implementation(include("com.google.code.findbugs:jsr305:${jsr305_version}"))
+    api(include("com.google.code.findbugs:jsr305:${jsr305_version}"))
 }
 
 processResources {
@@ -105,7 +108,7 @@ processResources {
 loom {
     forge {
         mixinConfig(
-                "easiertravelcraft-common.mixins.json"
+                "mrscrafttown-common.mixins.json"
         )
     }
 }

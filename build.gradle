@@ -52,6 +52,7 @@ subprojects {
         maven { url = "https://maven.cafeteria.dev/releases" } // Fake Player API
         maven { url = "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
         maven { url = "https://maven.theillusivec4.top/" } // Curios
+        maven { url = "https://minecraft.guntram.de/maven/"}
         maven {
             name = "Fuzs Mod Resources"
             url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"

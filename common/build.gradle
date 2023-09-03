@@ -1,3 +1,11 @@
+plugins {
+    id "de.guntram.mcmod.crowdin-translate" version "1.4+1.19"
+}
+
+crowdintranslate.crowdinProjectName = 'Mrs-Craft-Town'
+crowdintranslate.minecraftProjectName = 'mrscrafttown'
+crowdintranslate.verbose = false
+
 architectury {
     common(rootProject.enabled_platforms.split(","))
 }
@@ -7,7 +15,6 @@ loom {
 }
 
 dependencies {
-
     // From Architectury Templates
 
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
@@ -16,7 +23,7 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${architectury_version}"
 
-    modImplementation "earth.terrarium:botarium-common-${rootProject.minecraft_version}:${botarium_version}"
+    //modImplementation "earth.terrarium:botarium-common-${rootProject.minecraft_version}:${botarium_version}"
 
     // Impl
     // JEI
@@ -38,36 +45,46 @@ dependencies {
     // Cloth Config
     modApi "me.shedaniel.cloth:cloth-config:${cloth_config_version}"
 
+    // Resourceful Config
+    modApi "curse.maven:resourceful-config-714059:${resourceful_config_fabric_version}"
+
+    // Forge Config Api Port
+    modApi "curse.maven:forge-config-api-port-fabric-547434:${forge_config_version}"
+    modApi "com.electronwill.night-config:core:${night_config_version}"
+    modApi "com.electronwill.night-config:json:${night_config_version}"
+    modApi "com.electronwill.night-config:yaml:${night_config_version}"
+    modApi "com.electronwill.night-config:toml:${night_config_version}"
+
     // Geckolib
-    modImplementation "software.bernie.geckolib:geckolib-fabric-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
+    modApi "software.bernie.geckolib:geckolib-fabric-${rootProject.minecraft_version}:${geckolib_version}" //>=1.19.4
 
     // BookShelf
-    modCompileOnly "net.darkhax.bookshelf:Bookshelf-Common-${rootProject.minecraft_version}:${bookshelf_version}"
+    modApi "net.darkhax.bookshelf:Bookshelf-Common-${rootProject.minecraft_version}:${bookshelf_version}"
 
     // Kiwi
     modApi "curse.maven:kiwi-fabric-549404:${kiwi_fabric_fileId}"
     annotationProcessor "curse.maven:kiwi-fabric-549404:${kiwi_fabric_fileId}"
 
     // Cardinal Components Api
-    modCompileOnly "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${cardinal_components_api_version}"
+    modApi "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${cardinal_components_api_version}"
 
     // Milk Lib
-    modCompileOnly "io.github.tropheusj:milk-lib:${milk_lib_version}"
+    modApi "io.github.tropheusj:milk-lib:${milk_lib_version}"
 
     // Reach Entity Attributes
     //modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}")
 
     // Fabric Shields Lib
-    modCompileOnly("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${fabric_shield_lib_version}") {
-        exclude module: "midnightlib"
-    }
+    //modApi("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${fabric_shield_lib_version}") {
+    //    exclude module: "midnightlib"
+    //}
 
     // Other Libs
-    modCompileOnly("com.github.Fallen-Breath:conditional-mixin:${coditionalmixin_version}") {
+    modApi("com.github.Fallen-Breath:conditional-mixin:${coditionalmixin_version}") {
         exclude module: "fabric-loader"
     }
     // fix nullable imports
-    implementation "com.google.code.findbugs:jsr305:${jsr305_version}"
+    api "com.google.code.findbugs:jsr305:${jsr305_version}"
 }
 
 publishing {

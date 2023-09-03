@@ -16,11 +16,7 @@ import static cn.mrcraftteammc.mrscrafttown.MrsCraftTownMod.MOD_ID;
 public class MrCTCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-    //public static RegistrySupplier<CreativeModeTab> creativeTab(@NotNull String id, @NotNull String name, Item item) {
-    //    return TABS.register(id, () -> CreativeTabRegistry.create(Component.translatable(name), () -> new ItemStack(item)));
-    //}
-
-    public static final RegistrySupplier<CreativeModeTab> BASE_TAB = TABS.register("mrctmod_tab",() -> CreativeTabRegistry.create(Component.translatable("MrCT Mod"), () -> new ItemStack(Items.CRAFTING_TABLE)));
+    public static final RegistrySupplier<CreativeModeTab> BASE_TAB = TABS.register("mrctmod_tab",() -> CreativeTabRegistry.create(Component.translatable("itemGroup.mrctmod_tab"), () -> new ItemStack(Items.CRAFTING_TABLE)));
 
     public static void register() {
         TABS.register();

@@ -8,12 +8,22 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftServer.class)
-public class MinecraftServerMixin {
+public abstract class MinecraftServerMixin {
     @Inject(
             at = @At("HEAD"),
-            method = "runServer"
+            method = "runServer()V",
+            cancellable = true
     )
-    private void init(CallbackInfo info) {
+    private void onRunServer(CallbackInfo info) {
         MrsCraftTownMod.LOGGER.info("Server Side {} is Loading!", MrsCraftTownMod.class.getName());
+    }
+
+    @Inject(
+            at = @At("HEAD"),
+            method = "loadLevel()V",
+            cancellable = true
+    )
+    private void onLoadLevel(CallbackInfo callbackInfo) {
+        MrsCraftTownMod.LOGGER.info("{} is Loading for World!", MrsCraftTownMod.class.getName());
     }
 }

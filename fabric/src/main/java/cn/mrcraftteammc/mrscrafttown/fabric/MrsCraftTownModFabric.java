@@ -2,7 +2,6 @@ package cn.mrcraftteammc.mrscrafttown.fabric;
 
 import cn.mrcraftteammc.mrscrafttown.MrsCraftTownMod;
 import cn.mrcraftteammc.mrscrafttown.config.MrCTFabricConfigger;
-import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.*;
 import snownee.kiwi.Mod;
 
@@ -15,13 +14,14 @@ public class MrsCraftTownModFabric implements ModInitializer, ClientModInitializ
     @Override
     public void onInitialize() {
         MrsCraftTownMod.init();
-        LOGGER.info("Init Configger");
-        MidnightConfig.init(MOD_ID, MrCTFabricConfigger.class);
     }
 
     @Environment(EnvType.CLIENT)
     @Override
     public void onInitializeClient() {
+        LOGGER.info("Init i18n Translates");
+        //CrowdinTranslate.downloadTranslations("Mrs-Craft-Town", "mrscrafttown");
+        LOGGER.info("Init Configger");
         MrsCraftTownMod.initClient();
     }
 

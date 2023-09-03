@@ -3,7 +3,6 @@ package cn.mrcraftteammc.mrscrafttown.forge;
 import cn.mrcraftteammc.mrscrafttown.MrsCraftTownMod;
 import cn.mrcraftteammc.mrscrafttown.config.MrCTForgeConfigger;
 import dev.architectury.platform.forge.EventBuses;
-import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.common.Mod;
@@ -18,15 +17,15 @@ public class MrsCraftTownModForge {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         MrsCraftTownMod.init();
-        LOGGER.info("Init Configger");
-        MidnightConfig.init(MOD_ID, MrCTForgeConfigger.class);
-
         MrsCraftModForgeClient();
         MrsCraftModForgeServer();
     }
 
     @OnlyIn(Dist.CLIENT)
     public static void MrsCraftModForgeClient() {
+        LOGGER.info("Init i18n Translates");
+        //CrowdinTranslate.downloadTranslations("Mrs-Craft-Town", "mrscrafttown");
+        LOGGER.info("Init Configger");
         MrsCraftTownMod.initClient();
     }
 
